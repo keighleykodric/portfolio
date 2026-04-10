@@ -1,11 +1,16 @@
 {
-  "name": "keighley-portfolio",
+  "name": "portfolio-pocs",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "vite pocs/magazine-editorial",
+    "dev:magazine": "vite pocs/magazine-editorial",
+    "dev:era": "vite pocs/era-timeline",
+    "dev:emoji": "vite pocs/emoji",
+    "build:magazine": "vite build pocs/magazine-editorial",
+    "build:era": "vite build pocs/era-timeline",
+    "build:emoji": "vite build pocs/emoji"
   },
   "dependencies": {
     "react": "^18.3.1",
