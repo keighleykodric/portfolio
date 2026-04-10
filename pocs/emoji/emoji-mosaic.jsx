@@ -5,14 +5,17 @@ const EMOJI_MAP = [
   { emoji: "⬛", r: 20,  g: 20,  b: 20  },
   { emoji: "🖤", r: 32,  g: 28,  b: 34  },
   { emoji: "🌑", r: 45,  g: 42,  b: 48  },
+  { emoji: "🌚", r: 28,  g: 28,  b: 42  },
 
   // Dark grays
   { emoji: "🪨", r: 90,  g: 85,  b: 80  },
   { emoji: "🐘", r: 125, g: 118, b: 122 },
+  { emoji: "🌋", r: 75,  g: 65,  b: 62  },
 
   // Mid / light grays
   { emoji: "🩶", r: 140, g: 138, b: 144 },
   { emoji: "🌫️", r: 158, g: 158, b: 162 },
+  { emoji: "🦈", r: 112, g: 148, b: 172 },
   { emoji: "☁️", r: 210, g: 215, b: 222 },
 
   // Whites
@@ -22,29 +25,46 @@ const EMOJI_MAP = [
   // Warm whites / creams
   { emoji: "🥚", r: 242, g: 235, b: 212 },
 
+  // Skin tones — light to dark (key for portraits)
+  { emoji: "🤚🏻", r: 255, g: 220, b: 188 },
+  { emoji: "🤚🏼", r: 240, g: 196, b: 152 },
+  { emoji: "🤚🏽", r: 200, g: 152, b: 105 },
+  { emoji: "🤚🏾", r: 152, g: 102, b: 62  },
+  { emoji: "🤚🏿", r: 80,  g: 52,  b: 32  },
+
   // Reds — bright
   { emoji: "🟥", r: 210, g: 48,  b: 48  },
   { emoji: "🍎", r: 188, g: 45,  b: 45  },
+  { emoji: "🌶️", r: 195, g: 32,  b: 32  },
   { emoji: "🍓", r: 215, g: 52,  b: 62  },
   { emoji: "❤️", r: 230, g: 65,  b: 85  },
+  { emoji: "🍉", r: 215, g: 55,  b: 70  },
 
   // Reds — dark
   { emoji: "🌹", r: 195, g: 35,  b: 55  },
   { emoji: "🍒", r: 155, g: 28,  b: 48  },
+
+  // Orange-reds
+  { emoji: "🦀", r: 212, g: 62,  b: 48  },
+  { emoji: "🦞", r: 205, g: 58,  b: 45  },
 
   // Oranges
   { emoji: "🎃", r: 228, g: 112, b: 28  },
   { emoji: "🟧", r: 235, g: 128, b: 28  },
   { emoji: "🥕", r: 238, g: 128, b: 38  },
   { emoji: "🍊", r: 248, g: 148, b: 50  },
+  { emoji: "🥭", r: 252, g: 148, b: 28  },
+  { emoji: "🐡", r: 252, g: 135, b: 55  },
   { emoji: "🦊", r: 215, g: 108, b: 52  },
 
   // Peach / light orange
   { emoji: "🍑", r: 255, g: 175, b: 130 },
+  { emoji: "🦐", r: 245, g: 148, b: 108 },
 
   // Yellows — vivid
   { emoji: "🌻", r: 238, g: 195, b: 38  },
   { emoji: "🟨", r: 240, g: 218, b: 48  },
+  { emoji: "💛", r: 255, g: 218, b: 48  },
   { emoji: "⭐", r: 255, g: 222, b: 55  },
   { emoji: "🍌", r: 255, g: 228, b: 75  },
   { emoji: "🍋", r: 255, g: 232, b: 88  },
@@ -55,6 +75,9 @@ const EMOJI_MAP = [
   { emoji: "🌕", r: 250, g: 215, b: 118 },
   { emoji: "🌙", r: 218, g: 198, b: 128 },
 
+  // Yellow-green
+  { emoji: "🎾", r: 178, g: 205, b: 52  },
+
   // Pinks
   { emoji: "🌸", r: 238, g: 158, b: 182 },
   { emoji: "🦩", r: 245, g: 148, b: 168 },
@@ -62,10 +85,16 @@ const EMOJI_MAP = [
   { emoji: "🌷", r: 225, g: 95,  b: 125 },
   { emoji: "🌺", r: 218, g: 78,  b: 118 },
 
+  // Magentas
+  { emoji: "🪷", r: 218, g: 92,  b: 148 },
+  { emoji: "🐙", r: 195, g: 82,  b: 108 },
+
   // Browns — light (sandy / tan)
   { emoji: "🦁", r: 210, g: 162, b: 82  },
+  { emoji: "🥐", r: 208, g: 158, b: 85  },
   { emoji: "🥜", r: 185, g: 138, b: 78  },
   { emoji: "🐿️", r: 168, g: 118, b: 68  },
+  { emoji: "🥥", r: 178, g: 138, b: 98  },
 
   // Browns — medium
   { emoji: "🍁", r: 205, g: 85,  b: 38  },
@@ -77,11 +106,13 @@ const EMOJI_MAP = [
   // Browns — dark
   { emoji: "🟫", r: 128, g: 72,  b: 38  },
   { emoji: "🧱", r: 185, g: 82,  b: 58  },
+  { emoji: "🤎", r: 120, g: 68,  b: 34  },
   { emoji: "🍫", r: 100, g: 55,  b: 28  },
 
   // Greens — bright / light
   { emoji: "🍏", r: 110, g: 185, b: 78  },
   { emoji: "🟩", r: 68,  g: 185, b: 68  },
+  { emoji: "💚", r: 62,  g: 172, b: 62  },
   { emoji: "🌱", r: 80,  g: 158, b: 72  },
   { emoji: "🐸", r: 88,  g: 158, b: 68  },
   { emoji: "🍃", r: 78,  g: 158, b: 88  },
@@ -92,18 +123,23 @@ const EMOJI_MAP = [
   { emoji: "🌿", r: 48,  g: 128, b: 58  },
   { emoji: "🥦", r: 55,  g: 128, b: 52  },
   { emoji: "🌵", r: 58,  g: 128, b: 68  },
+  { emoji: "🥝", r: 112, g: 155, b: 55  },
 
-  // Greens — dark
+  // Greens — dark / olive
   { emoji: "🌴", r: 42,  g: 112, b: 52  },
   { emoji: "🌲", r: 28,  g: 88,  b: 42  },
+  { emoji: "🫒", r: 95,  g: 118, b: 52  },
+  { emoji: "🥑", r: 72,  g: 108, b: 52  },
 
   // Teals
   { emoji: "🦎", r: 72,  g: 150, b: 88  },
   { emoji: "🐢", r: 62,  g: 142, b: 98  },
+  { emoji: "🐬", r: 68,  g: 158, b: 185 },
 
-  // Blues — pale / sky
+  // Blues — pale / sky / cyan
   { emoji: "🫧", r: 188, g: 218, b: 232 },
   { emoji: "🧊", r: 158, g: 208, b: 240 },
+  { emoji: "🩵", r: 92,  g: 182, b: 228 },
   { emoji: "💧", r: 90,  g: 172, b: 218 },
 
   // Blues — medium
@@ -116,11 +152,15 @@ const EMOJI_MAP = [
   { emoji: "🟦", r: 48,  g: 118, b: 210 },
   { emoji: "💙", r: 35,  g: 90,  b: 185 },
 
+  // Blues — deep / navy
+  { emoji: "🌌", r: 18,  g: 22,  b: 58  },
+
   // Purples
   { emoji: "🪻", r: 118, g: 72,  b: 152 },
   { emoji: "🔮", r: 128, g: 78,  b: 172 },
   { emoji: "🟪", r: 138, g: 68,  b: 182 },
   { emoji: "💜", r: 148, g: 62,  b: 195 },
+  { emoji: "🍆", r: 88,  g: 48,  b: 108 },
   { emoji: "🍇", r: 108, g: 52,  b: 128 },
   { emoji: "🫐", r: 58,  g: 48,  b: 128 },
 ];
@@ -170,49 +210,73 @@ function makeDemoCanvas() {
 }
 
 export default function EmojiMosaic() {
-  const [cols, setCols] = useState(40);
+  const [cols, setCols] = useState(80);
+  const [renderCols, setRenderCols] = useState(80);
   const [srcCanvas, setSrcCanvas] = useState(null);
+  const [srcUrl, setSrcUrl] = useState(null);
   const [preview, setPreview] = useState(null);
+  const [showOriginal, setShowOriginal] = useState(false);
   const [copied, setCopied] = useState(false);
   const [canvasW, setCanvasW] = useState(0);
   const outputRef = useRef(null);
   const containerRef = useRef(null);
   const fileRef = useRef(null);
+  const gridRef = useRef(null);       // cached { grid, numRows, numCols, aspect }
+  const canvasWRef = useRef(0);
+  const colsTimerRef = useRef(null);
+  const resizeTimerRef = useRef(null);
 
-  // Track container width
+  // Track container width with debounce
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const ro = new ResizeObserver(entries => {
       const w = Math.floor(entries[0].contentRect.width);
-      if (w > 0) setCanvasW(w);
+      if (w <= 0) return;
+      canvasWRef.current = w;
+      clearTimeout(resizeTimerRef.current);
+      resizeTimerRef.current = setTimeout(() => setCanvasW(w), 100);
     });
     ro.observe(el);
     return () => ro.disconnect();
   }, []);
 
-  const render = useCallback((src, numCols, displayW) => {
-    const out = outputRef.current;
-    if (!src || !out || displayW === 0) return;
-    const aspectRatio = src.height / src.width;
-    const displayH = Math.round(displayW * aspectRatio);
-    const numRows = Math.round(aspectRatio * numCols);
-    const cellW = src.width / numCols;
-    const cellH = src.height / numRows;
-    const srcCtx = src.getContext("2d");
+  // Compute grid: single getImageData call, sample from full pixel buffer
+  const computeGrid = useCallback((src, numCols) => {
+    const { width: W, height: H } = src;
+    const numRows = Math.round((H / W) * numCols);
+    const cellW = W / numCols;
+    const cellH = H / numRows;
+    const data = src.getContext("2d").getImageData(0, 0, W, H).data;
     const grid = [];
     for (let row = 0; row < numRows; row++) {
+      const y0 = Math.floor(row * cellH);
+      const y1 = Math.min(Math.floor((row + 1) * cellH), H);
       const line = [];
       for (let col = 0; col < numCols; col++) {
-        const x = Math.floor(col * cellW), y = Math.floor(row * cellH);
-        const w = Math.max(1, Math.floor(cellW)), h = Math.max(1, Math.floor(cellH));
-        const d = srcCtx.getImageData(x, y, w, h).data;
+        const x0 = Math.floor(col * cellW);
+        const x1 = Math.min(Math.floor((col + 1) * cellW), W);
         let r = 0, g = 0, b = 0, n = 0;
-        for (let i = 0; i < d.length; i += 4) { r += d[i]; g += d[i+1]; b += d[i+2]; n++; }
-        line.push(nearest(r/n, g/n, b/n));
+        for (let py = y0; py < y1; py++) {
+          const rowBase = py * W * 4;
+          for (let px = x0; px < x1; px++) {
+            const i = rowBase + px * 4;
+            r += data[i]; g += data[i+1]; b += data[i+2]; n++;
+          }
+        }
+        line.push(n > 0 ? nearest(r/n, g/n, b/n) : "⬛");
       }
       grid.push(line);
     }
+    return { grid, numRows, numCols, aspect: H / W };
+  }, []);
+
+  // Draw cached grid to canvas
+  const drawGrid = useCallback((cached, displayW) => {
+    const out = outputRef.current;
+    if (!out || displayW === 0 || !cached) return;
+    const { grid, numRows, numCols, aspect } = cached;
+    const displayH = Math.round(displayW * aspect);
     out.width = displayW;
     out.height = displayH;
     const ctx = out.getContext("2d");
@@ -234,17 +298,35 @@ export default function EmojiMosaic() {
   useEffect(() => {
     const demo = makeDemoCanvas();
     setSrcCanvas(demo);
+    setSrcUrl(demo.toDataURL());
   }, []);
 
+  // Recompute grid when src or cols changes
   useEffect(() => {
-    if (srcCanvas && canvasW > 0) render(srcCanvas, cols, canvasW);
-  }, [srcCanvas, cols, canvasW, render]);
+    if (!srcCanvas || canvasWRef.current === 0) return;
+    const cached = computeGrid(srcCanvas, renderCols);
+    gridRef.current = cached;
+    drawGrid(cached, canvasWRef.current);
+  }, [srcCanvas, renderCols, computeGrid, drawGrid]);
+
+  // Redraw only (no recompute) when canvas width changes
+  useEffect(() => {
+    if (!gridRef.current || canvasW === 0) return;
+    drawGrid(gridRef.current, canvasW);
+  }, [canvasW, drawGrid]);
+
+  const handleColsChange = (val) => {
+    setCols(val);
+    clearTimeout(colsTimerRef.current);
+    colsTimerRef.current = setTimeout(() => setRenderCols(val), 150);
+  };
 
   const handleFile = (file) => {
     if (!file || !file.type.startsWith("image/")) return;
     const reader = new FileReader();
     reader.onload = (e) => {
       setPreview(e.target.result);
+      setSrcUrl(e.target.result);
       const img = new Image();
       img.onload = () => {
         const c = document.createElement("canvas");
@@ -298,7 +380,7 @@ export default function EmojiMosaic() {
       <div style={{
         position: "sticky", top: 0, zIndex: 10,
         background: "#0d0d0d",
-        padding: "12px 0", display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap",
+        padding: "12px", display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap",
       }}>
         <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "-0.01em", marginRight: 4, whiteSpace: "nowrap" }}>
           EMOJI MOSAIC
@@ -307,10 +389,13 @@ export default function EmojiMosaic() {
           <div style={{ fontSize: 9, color: "#484848", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 6 }}>
             density — {cols} col — {label}
           </div>
-          <input type="range" min={8} max={200} value={cols} onChange={e => setCols(Number(e.target.value))} />
+          <input type="range" min={8} max={200} value={cols} onChange={e => handleColsChange(Number(e.target.value))} />
         </div>
         <button className="btn" onClick={() => fileRef.current?.click()}>
           {preview ? "swap photo" : "upload photo"}
+        </button>
+        <button className={`btn${showOriginal ? " p" : ""}`} onClick={() => setShowOriginal(v => !v)}>
+          original
         </button>
         <button className="btn" onClick={handleCopy}>{copied ? "copied ✓" : "copy img"}</button>
         <button className="btn p" onClick={handleDownload}>download</button>
@@ -320,8 +405,11 @@ export default function EmojiMosaic() {
 
       {/* Full-width canvas */}
       <div ref={containerRef} style={{ width: "100%", position: "relative", background: "#080808" }}>
-        <canvas ref={outputRef} style={{ display: "block", width: "100%", height: "auto" }} />
-        {preview && (
+        <canvas ref={outputRef} style={{ display: showOriginal ? "none" : "block", width: "100%", height: "auto" }} />
+        {showOriginal && srcUrl && (
+          <img src={srcUrl} alt="original" style={{ display: "block", width: "100%", height: "auto" }} />
+        )}
+        {preview && !showOriginal && (
           <img src={preview} alt="src" style={{
             position: "absolute", bottom: 8, right: 8, height: 48,
             objectFit: "cover", opacity: 0.3, border: "1px solid #333"

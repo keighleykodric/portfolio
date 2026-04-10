@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build:emoji",
+  "outputDirectory": "pocs/emoji/dist",
+  "installCommand": "npm install"
+}
