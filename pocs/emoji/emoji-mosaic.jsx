@@ -361,7 +361,7 @@ export default function EmojiMosaic() {
   const label = cols <= 20 ? "chunky" : cols <= 60 ? "mosaic" : cols <= 120 ? "detailed" : "photographic";
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0d0d0d", color: "#d8d4ca", fontFamily: "'Courier New', monospace" }}>
+    <div style={{ minHeight: "100vh", background: "#0d0d0d", color: "#d8d4ca", fontFamily: "'Courier New', monospace", paddingBottom: "calc(56px + env(safe-area-inset-bottom))" }}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
         .btn { background:transparent; border:1px solid #2e2e2e; color:#d8d4ca;
@@ -376,7 +376,7 @@ export default function EmojiMosaic() {
           width:10px; height:10px; background:#d8d4ca; border-radius:0; cursor:pointer; }
       `}</style>
 
-      {/* Sticky controls bar */}
+      {/* Sticky top bar — buttons only */}
       <div style={{
         position: "sticky", top: 0, zIndex: 10,
         background: "#0d0d0d",
@@ -384,12 +384,6 @@ export default function EmojiMosaic() {
       }}>
         <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: "-0.01em", marginRight: 4, whiteSpace: "nowrap" }}>
           EMOJI MOSAIC
-        </div>
-        <div style={{ flex: 1, minWidth: 160 }}>
-          <div style={{ fontSize: 9, color: "#484848", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 6 }}>
-            density — {cols} col — {label}
-          </div>
-          <input type="range" min={8} max={200} value={cols} onChange={e => handleColsChange(Number(e.target.value))} />
         </div>
         <button className="btn" onClick={() => fileRef.current?.click()}>
           {preview ? "swap photo" : "upload photo"}
@@ -415,6 +409,18 @@ export default function EmojiMosaic() {
             objectFit: "cover", opacity: 0.3, border: "1px solid #333"
           }} />
         )}
+      </div>
+
+      {/* Fixed bottom slider */}
+      <div style={{
+        position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 10,
+        background: "#0d0d0d",
+        padding: "12px 16px calc(16px + env(safe-area-inset-bottom))",
+      }}>
+        <div style={{ fontSize: 9, color: "#484848", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 6 }}>
+          density — {cols} col — {label}
+        </div>
+        <input type="range" min={8} max={200} value={cols} onChange={e => handleColsChange(Number(e.target.value))} />
       </div>
     </div>
   );
